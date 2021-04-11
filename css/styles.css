@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+:root {
+    --time: .2s;
+    --first-color: #4bcefc;
+    --second-color: #4bcdfcea;
+    --third-color: #04457e;
+    --color-letter: #706e6e;
+    --primary: #fff;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 70px;
+    color: var(--color-letter);
+    position: relative;
+    animation: leftToCenter 2s linear calc(var(--time)* 8) backwards;
+}
+
+.flutter {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    transform: rotate(45deg);
+    column-gap: 18px;
+}
+
+.first {
+    background-color: var(--first-color);
+    height: 180px;
+    width: 40px;
+    clip-path: polygon(0 23%, 100% 0, 100% 100%, 0 100%);
+    animation: firstFill 2s linear calc(var(--time)* 1) backwards;
+}
+
+.second {
+    align-self: end;
+    background-color: var(--second-color);
+    height: 110px;
+    width: 40px;
+    clip-path: polygon(0 37%, 100% 0, 100% 100%, 0 100%);
+    z-index: 3;
+    animation: secondFill 2s linear calc(var(--time)* 6) backwards;
+    position: relative;
+}
+
+.third {
+    background-color: var(--third-color);
+    width: 40px;
+    height: 155px;
+    align-self: end;
+    position: relative;
+    bottom: -57px;
+    z-index: 1;
+    transform: rotate(-90deg);
+    clip-path: polygon(0 0, 100% 0, 100% 72%, 0 45%);
+    animation: thirdFill 2s linear calc(var(--time)* 5) backwards;
+
+}
+
+@keyframes leftToCenter {
+    from {
+        opacity: 0;
+        left: 150px;
+    }
+    to {
+        opacity: 1;
+        left: 0px;
+    }
+}
+
+@keyframes firstFill {
+    from {
+        opacity: 0;
+        background-color: var(--primary);
+    }
+    to {
+        opacity: 1;
+        background-color: var(--first-color);
+    }
+}
+
+@keyframes secondFill {
+    from {
+        opacity: 0;
+        background-color: var(--primary);
+    }
+    to {
+        opacity: 1;
+        background-color: var(--second-color);
+    }
+}
+
+@keyframes thirdFill {
+    from {
+        opacity: 0;
+        background-color: var(--primary);
+    }
+    to {
+        opacity: 1;
+        background-color: var(--third-color);
+    }
+}
